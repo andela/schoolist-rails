@@ -10,6 +10,7 @@ class V1::SchoolsController < ApplicationController
   end
 
   def create
+    require 'pry' ; binding.pry
     respond_with :v1, School.create(school_params)
   end
 
@@ -24,6 +25,6 @@ class V1::SchoolsController < ApplicationController
   private
 
   def school_params
-    params.require(:school).permit(:uid, :overweight_percentage, :obese_percentage)
+    params.require(:school).permit(:uid, :overweight_percentage, :obese_percentage, :county_id)
   end
 end
